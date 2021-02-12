@@ -2,11 +2,11 @@ const EventEmitter = require('./events');
 const later = require('later');
 
 class Programador extends EventEmitter {
-  constructor(configuracion = []) {
+  constructor(configuraciones = []) {
     super();
 
-    // Configuración de horas y temperaturas
-    this.configuracion = configuracion;
+    // Configuración de horas y temperaturas para establecer la temperatura ideal en el momento indicado
+    this.configuraciones = configuraciones;
 
     // Zona horaria
     this.indicarZonaHoraria();
@@ -20,9 +20,18 @@ class Programador extends EventEmitter {
   encender() {
     console.log('Encendiendo el programador.');
 
-    this.configuracion.forEach((conf) => {
-      const { hora, temperatura } = conf;
+    // Por cada configuración que nos den
+    this.configuraciones.forEach((configuracion) => {
+      // Obtener la hora y la temperatura de la configuracion
+      const { hora, temperatura } = configuracion;
+
+      // Crear planificación para todos los dias a la hora indicada
       const sched = later.parse.text(`at ${hora}`);
+
+      /**
+       * Crear un temporizador que emita diariamiente el evento "ideal"
+       * a la hora indicada con la temperatura ideal deseada
+       */
       later.setInterval(() => {
         this.emit('ideal', temperatura);
       }, sched);

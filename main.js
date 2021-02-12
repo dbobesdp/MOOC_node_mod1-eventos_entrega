@@ -15,12 +15,10 @@ const termostato = new Termostato(dormitorio);
 
 // Configuración de horas y temperaturas que se desea programar
 const configuracion = [
-  { hora: '02:32', temperatura: 22 },
-  { hora: '02:33', temperatura: 18 },
-  //   { hora: '07:00', temperatura: 22 },
-  //   { hora: '08:30', temperatura: 18 },
-  //   { hora: '18:00', temperatura: 22 },
-  //   { hora: '23:00', temperatura: 20 },
+  { hora: '07:00', temperatura: 22 },
+  { hora: '08:30', temperatura: 18 },
+  { hora: '18:00', temperatura: 22 },
+  { hora: '23:00', temperatura: 20 },
 ];
 
 // Creamos un programador que configurará la temperatura deseada en todo momento
@@ -42,27 +40,8 @@ programador.on('ideal', (temp) => {
   console.log(`Cambio programado de temperatura ideal a ${temp.toFixed(1)}ºC`);
 });
 
-let termo = {
-  nombre: 'termostato',
-  suscripciones: termostato.getSuscriptores(),
-};
-console.log(termo.suscripciones)
-console.log(Object.entries(termo.suscripciones))
-Object.entries(termo.suscripciones).forEach(([key, value])=>{
-    console.log(`key: ${key} -> value: ${value}`);
-});
+// Encender el termostato:
+termostato.encender();
 
-let prog = {
-  nombre: 'programador',
-  suscripciones: programador.getSuscriptores(),
-};
-console.log(prog.suscripciones)
-console.log(Object.entries(prog.suscripciones))
-Object.entries(prog.suscripciones).forEach(([key, value])=>{
-    console.log(`key: ${key} -> value: ${value}`);
-});
-// // Encender el termostato:
-// termostato.encender();
-
-// // Encender el programador
-// programador.encender();
+// Encender el programador
+programador.encender();
