@@ -1,3 +1,4 @@
+require('colors');
 const Habitacion = require('./habitacion');
 const Climatizador = require('./climatizador');
 const Termostato = require('./termostato');
@@ -37,7 +38,10 @@ termostato.indicarTemperaturaIdeal(20);
 // Configurar el programador para programar la temperatura ideal
 programador.on('ideal', (temp) => {
   termostato.indicarTemperaturaIdeal(temp);
-  console.log(`Cambio programado de temperatura ideal a ${temp.toFixed(1)}ºC`);
+  console.log(
+    `Cambio programado de temperatura ideal a ${temp.toFixed(1)}ºC`.underline
+      .bold.yellow
+  );
 });
 
 // Encender el termostato:

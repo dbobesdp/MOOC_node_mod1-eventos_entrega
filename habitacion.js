@@ -1,4 +1,4 @@
-
+require('colors');
 // Clase habitacion.
 // Su temperatura cambia aleatoriamente. (Simula el invierno o el verano)
 class Habitacion {
@@ -12,7 +12,7 @@ class Habitacion {
 		// hasta +/- un grado:
 		setInterval(() => {
 			this.temperatura += Math.random() * 2 - 1,
-			console.log(`Cambio aleatorio a ${this.temperatura.toFixed(1)}ºC`);
+			console.log(`Cambio aleatorio a ${this.temperatura.toFixed(1)}ºC`.underline.bold.yellow);
 		}, 10000);
 	}
 }

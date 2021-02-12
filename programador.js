@@ -1,5 +1,6 @@
-const EventEmitter = require('./events');
+require('colors');
 const later = require('later');
+const EventEmitter = require('./events');
 
 class Programador extends EventEmitter {
   constructor(configuraciones = []) {
@@ -18,7 +19,7 @@ class Programador extends EventEmitter {
   }
 
   encender() {
-    console.log('Encendiendo el programador.');
+    console.log('Encendiendo el programador.'.green);
 
     // Por cada configuración que nos den
     this.configuraciones.forEach((configuracion) => {

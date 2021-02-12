@@ -14,9 +14,11 @@
   },
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "dev": "nodemon main.js"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "later": "^1.2.0"
   }
 }

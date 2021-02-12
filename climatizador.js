@@ -17,12 +17,12 @@ class Climatizador {
 	}
 
 	enfriar() {
-		console.log('Enfriando.')
+		console.log('Enfriando.'.bgBrightBlue)
         this.habitacion.temperatura -= DELTA;
 	}
 
 	calentar() {
-		console.log('Calentando.')
+		console.log('Calentando.'.bgBrightRed)
         this.habitacion.temperatura += DELTA;
 	}
 }
