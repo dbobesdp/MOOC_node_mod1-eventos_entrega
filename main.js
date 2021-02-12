@@ -42,8 +42,27 @@ programador.on('ideal', (temp) => {
   console.log(`Cambio programado de temperatura ideal a ${temp.toFixed(1)}ºC`);
 });
 
-// Encender el termostato:
-termostato.encender();
+let termo = {
+  nombre: 'termostato',
+  suscripciones: termostato.getSuscriptores(),
+};
+console.log(termo.suscripciones)
+console.log(Object.entries(termo.suscripciones))
+Object.entries(termo.suscripciones).forEach(([key, value])=>{
+    console.log(`key: ${key} -> value: ${value}`);
+});
 
-// Encender el programador
-programador.encender();
+let prog = {
+  nombre: 'programador',
+  suscripciones: programador.getSuscriptores(),
+};
+console.log(prog.suscripciones)
+console.log(Object.entries(prog.suscripciones))
+Object.entries(prog.suscripciones).forEach(([key, value])=>{
+    console.log(`key: ${key} -> value: ${value}`);
+});
+// // Encender el termostato:
+// termostato.encender();
+
+// // Encender el programador
+// programador.encender();
